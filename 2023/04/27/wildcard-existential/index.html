@@ -19,24 +19,25 @@
         <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="前言这是一个颇具争议的话题。就算是把范围限制在我一个人身上，不同时期，不同情况，我也会给出不同的答案。因此本文并不会告诉你“应该这样做”或者“千万别这样做”。这是一个我和我周围人（未授权）的故事合集。这些经验也许可以作为你做出决定的参考。每一个“正方观点”都和“反方观点”恰好对应，因此建议全部阅读。">
+    <meta name="description" content="前言本周一（24日）师兄做了论文[1] 的分享。在此过程中受到了不少启发。重读TAPL[2] 后决定稍作一些笔记。待之后再有时间也会把witness的部分搞懂发出来。阅读本文需要一些类型论基础。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[杂谈] 我该不该把爱好当工作">
-<meta property="og:url" content="https://neilkleistgao.github.io/2023/04/26/hobby-or-job/index.html">
+<meta property="og:title" content="Java通配符，存在类型和协变逆变">
+<meta property="og:url" content="https://neilkleistgao.github.io/2023/04/27/wildcard-existential/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前言这是一个颇具争议的话题。就算是把范围限制在我一个人身上，不同时期，不同情况，我也会给出不同的答案。因此本文并不会告诉你“应该这样做”或者“千万别这样做”。这是一个我和我周围人（未授权）的故事合集。这些经验也许可以作为你做出决定的参考。每一个“正方观点”都和“反方观点”恰好对应，因此建议全部阅读。">
+<meta property="og:description" content="前言本周一（24日）师兄做了论文[1] 的分享。在此过程中受到了不少启发。重读TAPL[2] 后决定稍作一些笔记。待之后再有时间也会把witness的部分搞懂发出来。阅读本文需要一些类型论基础。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.loli.net/2023/04/26/qTdfO2PVv8bkNjl.jpg">
-<meta property="article:published_time" content="2023-04-26T12:10:41.000Z">
-<meta property="article:modified_time" content="2023-04-26T13:18:41.781Z">
+<meta property="article:published_time" content="2023-04-27T02:53:08.000Z">
+<meta property="article:modified_time" content="2023-04-29T10:49:23.017Z">
 <meta property="article:author" content="Fa1sePRoMiSe">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="类型论">
+<meta property="article:tag" content="C#">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2023/04/26/qTdfO2PVv8bkNjl.jpg">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-    <title>[杂谈] 我该不该把爱好当工作 · Fa1sePRoMiSe&#39;s Blog</title>
+    <title>Java通配符，存在类型和协变逆变 · Fa1sePRoMiSe&#39;s Blog</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -261,7 +262,7 @@
                 <a href="/">Fa1sePRoMiSe&#39;s Blog</a>
             </div>
             <div class="post-title header-element">
-                <a href="#" class="post-name">[杂谈] 我该不该把爱好当工作</a>
+                <a href="#" class="post-name">Java通配符，存在类型和协变逆变</a>
             </div>
         </div>
     
@@ -307,7 +308,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-                [杂谈] 我该不该把爱好当工作
+                Java通配符，存在类型和协变逆变
             <!-- 404 -->
             
         </h1>
@@ -327,6 +328,12 @@
                     <div class= post-intro-tags >
     
     
+        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="类型论">类型论</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="C#">C#</a>
+    
 </div>
 
                 
@@ -335,7 +342,7 @@
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2023/04/26</span>
+                    <span class="post-intro-time">2023/04/27</span>
                     <!-- busuanzi -->
                     
                     <!-- 文章分享 -->
@@ -485,31 +492,60 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这是一个颇具争议的话题。就算是把范围限制在我一个人身上，不同时期，不同情况，我也会给出不同的答案。<br>因此本文并不会告诉你“应该这样做”或者“千万别这样做”。<br>这是一个我和我周围人（未授权）的故事合集。这些经验也许可以作为你做出决定的参考。<br>每一个“正方观点”都和“反方观点”恰好对应，因此建议全部阅读。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本周一（24日）师兄做了论文[1] 的分享。在此过程中受到了不少启发。<br>重读TAPL[2] 后决定稍作一些笔记。待之后再有时间也会把witness的部分搞懂发出来。<br>阅读本文需要一些类型论基础。</p>
 <span id="more"></span>
 
-<h2 id="正方：我应该把爱好当工作"><a href="#正方：我应该把爱好当工作" class="headerlink" title="正方：我应该把爱好当工作"></a>正方：我应该把爱好当工作</h2><p>以下是一些支持你把爱好当工作的因素。</p>
-<h3 id="更多投入，更多产出"><a href="#更多投入，更多产出" class="headerlink" title="更多投入，更多产出"></a>更多投入，更多产出</h3><p>喜欢的食物你会多吃，喜欢的事情你也会多做。熟能生巧，做的多了，你也逐渐变得擅长了起来。<br>既然是爱好，那花在上面的时间自然不会少，相对的，你也许也会比不少人厉害，至少不会太差。很多领域内卓有成就的人也都是对自己的工作抱有一颗炽热的心。<br>当年打OI时就曾听闻过：某某大佬从小喜欢玩电脑，父母为了让他好好学习便给电脑上了锁。自此之后他就和父母开始了斗智斗勇，渐渐地也掌握了不少计算机知识。日积月累下来也便进了国家队。<br>就算是我偶尔也会骄傲骄傲，自己的码龄可能比有些博士生都长。</p>
-<h3 id="爱来自上级"><a href="#爱来自上级" class="headerlink" title="爱来自上级"></a>爱来自上级</h3><p>无论是学校里的教授，还是找工作时的HR，肯定都喜欢听见你说一句：“我很热爱这个领域”。<br>谁会乐易于招募一个不喜欢这个领域的家伙，成天干活偷工减料骂骂咧咧呢？<br>虽然说“喜欢”不能做为“录不录用”的决定性因素，但至少算是个加分项。<br>在我本科从经管转专业到软件工程时，我们需要通过几个教授的面试。为此我需要准备一个3到5分钟的自我介绍。<br>当我坐到房间里的时候就开始紧张了，以至于本来准备了快5分钟的自我介绍因为忘词实际只说了1分钟左右——大概就是我从初中到现在的编程学习流水账。<br>当我以为自己已经快完蛋了的时候，负责面试的Q教授说：“不用多说什么了吧？来吧？”</p>
-<h3 id="你所热爱的，就是你的生活"><a href="#你所热爱的，就是你的生活" class="headerlink" title="你所热爱的，就是你的生活"></a>你所热爱的，就是你的生活</h3><p>你的专业是你生活的一部分，这很酷。<br>我可以在假期里继续写代码，写代码是我生活的一部分。<br>我在工作时也需要写代码，这使得我的工作和假期没有什么特别大的区别。<br>我在工作的时候可以比较放松，也比较享受。这样的“码农”看起来多少有些奇怪。<br>但是如果你看向那些游戏主播和内容创作者（老E，超级小桀，以及号称可以工作时打FF14的STN工作室），你就不会感到奇怪。<br>就连喷神James也说过：这样的工作简直帅呆了！</p>
-<h3 id="爱好真的可以当饭吃！"><a href="#爱好真的可以当饭吃！" class="headerlink" title="爱好真的可以当饭吃！"></a>爱好真的可以当饭吃！</h3><p>作为一个计算机相关专业的学生，这一点我还是很自豪的：我的爱好可以当饭吃！<br>如果你的爱好可以为你带来不错的收益，那为什么要向金钱说不？<br>著名独立游戏《超级肉肉男孩（Super Meat Boy）》（注：指的是第一代）的制作者靠着这款游戏换了一套新家，这就是爱好可以当饭吃的实例。<br>当然了，如果你本身就家境优越，<del>请先v我50吃疯狂星期四，</del>你也许甚至不需要考虑能不能当饭吃的问题，让自己过得舒服就好。</p>
-<h2 id="反方：我不该把爱好当工作"><a href="#反方：我不该把爱好当工作" class="headerlink" title="反方：我不该把爱好当工作"></a>反方：我不该把爱好当工作</h2><p>以下是一些反对你把爱好当工作的因素。</p>
-<h3 id="把擅长的事当工作"><a href="#把擅长的事当工作" class="headerlink" title="把擅长的事当工作"></a>把擅长的事当工作</h3><p>经常打游戏的人都知道一张meme：你游戏时长这么长，你一定很擅长这个游戏吧？<br>“人菜瘾大”这件事在所难免。<br>有的时候我们投入了很多的时间，但也许并没有真正把正在做的内容当作一回事，或者一直停留在舒适区。<br>写一些可可爱爱的桌面精力软件可能很有意思，事实上14年中的时候我也一直在用C#做这种事。<br>但是大量的代码都是硬编码，这不会对我的编码能力产生任何实质性的贡献。<br>如果我一直停留在做这件事上，我也不可能会有什么进步。<br>因此，如果真的想在一个领域做出成就（也许只是能拿到一份不错的薪水），也许找到自己擅长什么比找到自己喜欢什么更重要。</p>
-<h3 id="爱做，不是爱给你做"><a href="#爱做，不是爱给你做" class="headerlink" title="爱做，不是爱给你做"></a>爱做，不是爱给你做</h3><p>很多人（包括我）都喜欢制作电子游戏。事实上你可以在我的GitHub主页或者个人主页（如果还存活的话）找到我以前的一些GameJam作品。<br>也许你觉得这样的话，进入一家游戏公司应该是理所应当的。但事实上并非如此。<br>从我个人的角度来说，21年下半年最值得纪念的事情理应是和X同学一起参加GameJam的经历（作品：不稳定化合物），而不是我在字节实习。<br>同样喜欢游戏制作，并且现在正在游戏公司的W同学也和我坦言过：和自己想的不一样。<br>游戏公司里，你对游戏的类型，画风，玩法……什么都决定不了，你只是接到一个任务，把它完成，然后再去做下一个。<br>你的爱好的主体依然是你自己，但工作呢？很不幸，大概率主体是你的老板。<br>主导者视角和螺丝钉视角下的同一件事完全不一样。</p>
-<h3 id="陈睿，你妈什么时候死啊？"><a href="#陈睿，你妈什么时候死啊？" class="headerlink" title="陈睿，你妈什么时候死啊？"></a><del>陈睿，你妈什么时候死啊？</del></h3><p>你是一个DDL战士吗？你有过被DDL追到深夜凌晨两点的经历吗？有没有感觉到你的生活完完全全被工作侵占了？<br>现在你还喜欢你的工作吗？<br>是不是觉得每天工作结束以后，什么都不想干，只想在床上躺着？<br>有没有觉得想做点什么别的事，但是毫无闲暇？<br>工作带来的压力与爱好带来的压力很有可能完全不在一个级别上，这是不能忽视的一点。<br>自己写点代码，或者给开源社区贡献PR，没啥进展，做不出东西，这也没什么压力；但是计算机专业的工作很可能就是：搞定这个功能，不然明天你就失业了！<br>想象一下：如果你被人要求一天连续打16个小时的荒野之息，并且要在3天之内通关主线并找齐120个神庙和900个<del>呀哈哈</del>克洛格，搞不定就把你从6楼踹下去……你还愿意喊出“任天堂他妈的就是世界的主宰吗”？<br>我想你只想把这一小节的标题改一改，把陈睿换成你老板的名字。</p>
-<h3 id="爱好能当饭吃吗？"><a href="#爱好能当饭吃吗？" class="headerlink" title="爱好能当饭吃吗？"></a>爱好能当饭吃吗？</h3><p>这是一个你所需要深思的问题：你的爱好究竟能不能当饭吃？<br>人是铁，饭是钢，一顿不吃饿得慌。<br>你对一个行业充满了向往，但是事实上发现干这一行的工资可能还不够你星期四去一趟肯德基。你能接受吗？<br>很多独立游戏制作人都选择了放弃，不是没有热爱，只是做独立游戏真的填不饱肚子。<br>我的一个前辈H和我说过，对现在在做的事情并没有什么浓厚的兴趣，只是不想毕了业真的去打灰。<br>很多长辈们当年也没有那个条件：对xxx感兴趣就去学什么，温饱才是最重要的。<br>满足了物理上的需求，然后才能轮到精神需求。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>你可能已经发现了，我在反方的措辞会更加偏激一些。这也许也能说明我最近的精神状况：</p>
-<p><img src="https://s2.loli.net/2023/04/26/qTdfO2PVv8bkNjl.jpg" alt="1606098bb9b5ebe1f0134a0977427c8.jpg"></p>
-<p>希望这只是暂时的状态（P.S. 我最近真的有在喝魔爪加班，不过HK的魔爪真贵……）</p>
+<h2 id="存在类型（Existential-Types）"><a href="#存在类型（Existential-Types）" class="headerlink" title="存在类型（Existential Types）"></a>存在类型（Existential Types）</h2><p>在介绍存在类型之前，我们建议你先了解一下任意类型（Universal Types，或者直译为通用类型）。我们将会对二者做一个对比。<br>以下部分转述自TAPL[2] 。<br>任意类型很好理解：$\forall X. T$，无非就是对于任意的类型$S$，我们都有$[X \rightarrow S]T$。<br>以Java为例，任意类型为Java提供了相应的泛型能力：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">List</span>&lt;T&gt; &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从<code>List</code>内部的实现来看，“任意类型”的含义在于：你外部可以给我<strong>任意</strong>的类型，无论你给我的是什么，这里的实现都是一样的。<br>换另一个视角，<code>List</code>其实是一个函数：它接受一个类型<code>T</code>作为参数，并为我们构造出一个新的类型。<br>例如我们传入一个<code>Student</code>类，<code>List</code>会为我们构造一个新的类型<code>List_Student</code>，这里面可以存储学生的数据。<br>那么相对应地，有“任意”（$\forall$）就有“存在”（$\exists$）。<br>存在类型写作$\exists X. T$，即我们可以找到一个类型$S$，使得$[X \rightarrow S]T$。而我们并不关心$S$具体是什么。<br>这里可能会产生疑问：在任意类型里，我们也并不关心$T$到底是什么呀？<br>二者确实都不关心类型具体是什么，区别在于视角上。<br>任意类型所在的视角可以称之为申明视角（Declaration-Site）。对于$\forall X. T$来说，我们是需要具体去定义$T$到底是什么的。<br>依然以上面<code>List</code>为例，我们需要描述这个<code>List</code>怎么存储，如何加入新的元素……<br>这些操作都需要我们用某个东西来指代“那个任意的类型”，因此我们在申明时需要写成<code>List&lt;T&gt;</code>，<code>T</code>的目的就是指代“那个类型”。<br>而对于存在类型，我们的视角其实是使用视角（Use-Site）。我们拿到了一个泛型类型的变量，我们并不关心它里面的类型究竟是什么，我们只想使用它。<br>我不在乎这里面是类型A还是类型B，它可以给我计算一个平均值出来，我就满意了。<br>这样说或许有些抽象。我们不妨来看看Java的类型通配符。</p>
+<h2 id="Java通配符（Wildcards）"><a href="#Java通配符（Wildcards）" class="headerlink" title="Java通配符（Wildcards）"></a>Java通配符（Wildcards）</h2><p>我们假定现在有一个“容器”类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Container</span>&lt;T&gt; &#123;</span><br><span class="line">  <span class="keyword">private</span> T value;</span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">Container</span><span class="params">(T t)</span> &#123;</span><br><span class="line">    value = t;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> T <span class="title function_">get</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以往容器里装东西：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Container&lt;Integer&gt; ci = <span class="keyword">new</span> <span class="title class_">Container</span>&lt;Integer&gt;(<span class="number">42</span>);</span><br></pre></td></tr></table></figure>
+
+<p>为了方便后续的表述，这里我们新建两个空类，分别为<code>Base</code>和<code>Derived</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Base.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Derived.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Derived</span> <span class="keyword">extends</span> <span class="title class_">Base</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>很显然，$Derived &lt;: Base$。现在让我们把这两个类装进容器里：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Container&lt;Base&gt; cb = <span class="keyword">new</span> <span class="title class_">Container</span>&lt;Base&gt;(<span class="keyword">new</span> <span class="title class_">Base</span>());</span><br><span class="line">Container&lt;Base&gt; cd = <span class="keyword">new</span> <span class="title class_">Container</span>&lt;Derived&gt;(<span class="keyword">new</span> <span class="title class_">Derived</span>()); <span class="comment">// error!</span></span><br></pre></td></tr></table></figure>
+
+<p>编译器会抱怨：我们需要一个<code>Container&lt;Base&gt;</code>，但是我们提供的却是一个<code>Container&lt;Derived&gt;</code>。<br>尽管这看起来非常符合直觉——如果我需要一个<code>Base</code>的容器，后续把这个值取出来传递给其它函数处理，那么这个函数的参数应该也是<code>Base</code>（或者<code>Object</code>，不过我们也有$Base &lt;: Object$），那么这里传入一个<code>Derived</code>的变量是完全合理的——但是Java编译器并不能理解这一切。<br>同理，以下的代码也有相同的问题：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Container&lt;Base&gt; cd = <span class="keyword">new</span> <span class="title class_">Container</span>&lt;Derived&gt;(<span class="keyword">new</span> <span class="title class_">Derived</span>()); <span class="comment">// error!</span></span><br><span class="line">Container&lt;Derived&gt; cd = <span class="keyword">new</span> <span class="title class_">Container</span>&lt;Derived&gt;(<span class="keyword">new</span> <span class="title class_">Derived</span>());</span><br></pre></td></tr></table></figure>
+
+<p>为了让上述的代码变得合理起来，我们需要使用通配符<code>?</code>。<br>这个通配符的意思就是：只要满足条件，任何<code>Container</code>都可以送进来：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Container&lt;?&gt; cai = <span class="keyword">new</span> <span class="title class_">Container</span>&lt;Integer&gt;(<span class="number">42</span>);</span><br><span class="line">Container&lt;?&gt; cab = <span class="keyword">new</span> <span class="title class_">Container</span>&lt;Base&gt;(<span class="keyword">new</span> <span class="title class_">Base</span>());</span><br><span class="line">Container&lt;?&gt; cad = <span class="keyword">new</span> <span class="title class_">Container</span>&lt;Derived&gt;(<span class="keyword">new</span> <span class="title class_">Derived</span>());</span><br></pre></td></tr></table></figure>
+
+<p>这里的<code>?</code>其实是<code>? extends Object</code>的语法糖，由于对任意的Java类型$T$，都有$T &lt;: Object$，我们可以直接省略。<br><code>extends</code>关键字可以约束通配符的上界：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Container&lt;? <span class="keyword">extends</span> <span class="title class_">Base</span>&gt; cub = <span class="keyword">new</span> <span class="title class_">Container</span>&lt;Base&gt;(<span class="keyword">new</span> <span class="title class_">Base</span>());</span><br><span class="line">Container&lt;? <span class="keyword">extends</span> <span class="title class_">Base</span>&gt; cud = <span class="keyword">new</span> <span class="title class_">Container</span>&lt;Derived&gt;(<span class="keyword">new</span> <span class="title class_">Derived</span>());</span><br><span class="line">Container&lt;? <span class="keyword">extends</span> <span class="title class_">Base</span>&gt; cui = <span class="keyword">new</span> <span class="title class_">Container</span>&lt;Integer&gt;(<span class="number">42</span>); <span class="comment">// error!</span></span><br></pre></td></tr></table></figure>
+
+<p><code>? exntends Base</code>限定了通配符的上界是<code>Base</code>，因此<code>Integer</code>是无法被传入的。<br>同样可以用<code>super</code>关键字限定下界：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Container&lt;? <span class="built_in">super</span> Derived&gt; clb = <span class="keyword">new</span> <span class="title class_">Container</span>&lt;Base&gt;(<span class="keyword">new</span> <span class="title class_">Base</span>());</span><br><span class="line">Container&lt;? <span class="built_in">super</span> Derived&gt; cld = <span class="keyword">new</span> <span class="title class_">Container</span>&lt;Derived&gt;(<span class="keyword">new</span> <span class="title class_">Derived</span>());</span><br><span class="line">Container&lt;? <span class="built_in">super</span> Derived&gt; cli = <span class="keyword">new</span> <span class="title class_">Container</span>&lt;Integer&gt;(<span class="number">42</span>); <span class="comment">// error!</span></span><br></pre></td></tr></table></figure>
+
+<p>很不幸，目前我们没法直接通过<code>? extends Base super Derived</code>同时约定上下界。<br>不过这是可以实现的，我们将在witness的部分介绍。<br>你可能已经发现了，这里的通配符其实就是存在类型：</p>
+<ul>
+<li><code>Container&lt;?&gt;</code>： $\exists T. Container &lt; T &gt;$</li>
+<li><code>Container&lt;? extends Base&gt;</code>： $\exists T &lt;: Base. Container &lt; T &gt;$</li>
+<li><code>Container&lt;? super Derived&gt;</code>： $\exists T :&gt; Derived. Container &lt; T &gt;$</li>
+</ul>
+<p>从上文也可以得知，存在类型的一个用途就是实现用户侧（Use-Site）的协变和逆变。<br>如果你对协变和逆变不熟悉，可以参考下一节。</p>
+<h2 id="协变和逆变"><a href="#协变和逆变" class="headerlink" title="协变和逆变"></a>协变和逆变</h2><p>对于上文的<code>Container&lt;T&gt;</code>，我们非常希望：对于类型<code>L, U, L &lt;: U</code>，我们同样可以得到<code>Container&lt;L&gt; &lt;: Container&lt;U&gt;</code>。<br>我们称类型<code>T</code>之于<code>Container</code>是协变的（Covariant）。<br>有时我们也会有相反的想法：<code>Container&lt;U&gt; &lt;: Container&lt;L&gt;</code>，那么此时<code>T</code>之于<code>Container</code>是逆变的（Contravariant）。<br>如果我们使用<code>? extends T</code>通配符，那么它就是协变的；反之如果使用<code>? super T</code>，它就是逆变的。<br>对于Java这种默认情况下二者均不是的情况，我们称之为不变的（Invariant）。<br>我们在定义协变和逆变的时候，类型早已经定义好了。因此协变和逆变仅针对于相关的变量有效，这就是用户侧的含义。<br>像C#这样的语言就支持定义侧（Declaration-Site）的协变和逆变：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">ICoContainer</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt; &#123; &#125;</span><br><span class="line"><span class="keyword">interface</span> <span class="title">IContraContainer</span>&lt;<span class="keyword">in</span> <span class="title">T</span>&gt; &#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>C#的命名相对而言更加直观：进是逆变，出是协变。以函数类型举例的话：<code>P =&gt; R</code>类型，<code>P</code>是逆变的，而<code>R</code>是协变的。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li>[1] K. Bierhoff, ‘Wildcards need witness protection’, Proc. ACM Program. Lang., vol. 6, no. OOPSLA2, pp. 373–394, Oct. 2022, doi: 10.1145&#x2F;3563301.</li>
+<li>[2] B. C. Pierce, Types and programming languages. Cambridge, Mass: MIT Press, 2002.</li>
+</ul>
 
     </article>
     <!-- license -->
     
         <div class="license-wrapper">
             <p>Author：<a href="https://neilkleistgao.github.io">Fa1sePRoMiSe</a>
-            <p>Link：<a href="https://neilkleistgao.github.io/2023/04/26/hobby-or-job/">https://neilkleistgao.github.io/2023/04/26/hobby-or-job/</a>
-            <p>Publish date：<a href="https://neilkleistgao.github.io/2023/04/26/hobby-or-job/">April 26th 2023, 8:10:41 pm</a>
-            <p>Update date：<a href="https://neilkleistgao.github.io/2023/04/26/hobby-or-job/">April 26th 2023, 9:18:41 pm</a>
+            <p>Link：<a href="https://neilkleistgao.github.io/2023/04/27/wildcard-existential/">https://neilkleistgao.github.io/2023/04/27/wildcard-existential/</a>
+            <p>Publish date：<a href="https://neilkleistgao.github.io/2023/04/27/wildcard-existential/">April 27th 2023, 10:53:08 am</a>
+            <p>Update date：<a href="https://neilkleistgao.github.io/2023/04/27/wildcard-existential/">April 29th 2023, 6:49:23 pm</a>
             <p>License：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -517,17 +553,12 @@
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2023/04/27/wildcard-existential/" title="Java通配符，存在类型和协变逆变">
-                    <div class="nextTitle">Java通配符，存在类型和协变逆变</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2023/04/22/js-wtf/" title="JS的奇妙特性合集">
-                    <div class="prevTitle">JS的奇妙特性合集</div>
+                <a href="/2023/04/26/hobby-or-job/" title="[杂谈] 我该不该把爱好当工作">
+                    <div class="prevTitle">[杂谈] 我该不该把爱好当工作</div>
                 </a>
             
         </li>
@@ -562,6 +593,21 @@
     <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
     
     <!-- Mathjax -->
+    
+        
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+
+
     
 </main>
 
@@ -653,7 +699,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%B9%EF%BC%9A%E6%88%91%E5%BA%94%E8%AF%A5%E6%8A%8A%E7%88%B1%E5%A5%BD%E5%BD%93%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">正方：我应该把爱好当工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E6%8A%95%E5%85%A5%EF%BC%8C%E6%9B%B4%E5%A4%9A%E4%BA%A7%E5%87%BA"><span class="toc-number">2.1.</span> <span class="toc-text">更多投入，更多产出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%B1%E6%9D%A5%E8%87%AA%E4%B8%8A%E7%BA%A7"><span class="toc-number">2.2.</span> <span class="toc-text">爱来自上级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E6%89%80%E7%83%AD%E7%88%B1%E7%9A%84%EF%BC%8C%E5%B0%B1%E6%98%AF%E4%BD%A0%E7%9A%84%E7%94%9F%E6%B4%BB"><span class="toc-number">2.3.</span> <span class="toc-text">你所热爱的，就是你的生活</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%B1%E5%A5%BD%E7%9C%9F%E7%9A%84%E5%8F%AF%E4%BB%A5%E5%BD%93%E9%A5%AD%E5%90%83%EF%BC%81"><span class="toc-number">2.4.</span> <span class="toc-text">爱好真的可以当饭吃！</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E6%96%B9%EF%BC%9A%E6%88%91%E4%B8%8D%E8%AF%A5%E6%8A%8A%E7%88%B1%E5%A5%BD%E5%BD%93%E5%B7%A5%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">反方：我不该把爱好当工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%8A%E6%93%85%E9%95%BF%E7%9A%84%E4%BA%8B%E5%BD%93%E5%B7%A5%E4%BD%9C"><span class="toc-number">3.1.</span> <span class="toc-text">把擅长的事当工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%B1%E5%81%9A%EF%BC%8C%E4%B8%8D%E6%98%AF%E7%88%B1%E7%BB%99%E4%BD%A0%E5%81%9A"><span class="toc-number">3.2.</span> <span class="toc-text">爱做，不是爱给你做</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%88%E7%9D%BF%EF%BC%8C%E4%BD%A0%E5%A6%88%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E6%AD%BB%E5%95%8A%EF%BC%9F"><span class="toc-number">3.3.</span> <span class="toc-text">陈睿，你妈什么时候死啊？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%B1%E5%A5%BD%E8%83%BD%E5%BD%93%E9%A5%AD%E5%90%83%E5%90%97%EF%BC%9F"><span class="toc-number">3.4.</span> <span class="toc-text">爱好能当饭吃吗？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%9C%A8%E7%B1%BB%E5%9E%8B%EF%BC%88Existential-Types%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">存在类型（Existential Types）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E9%80%9A%E9%85%8D%E7%AC%A6%EF%BC%88Wildcards%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">Java通配符（Wildcards）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E5%8F%98%E5%92%8C%E9%80%86%E5%8F%98"><span class="toc-number">4.</span> <span class="toc-text">协变和逆变</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">5.</span> <span class="toc-text">参考文献</span></a></li></ol>
             </div>
         
         <!-- sidebar -->
