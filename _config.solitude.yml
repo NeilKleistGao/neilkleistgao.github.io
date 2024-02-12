@@ -289,8 +289,8 @@ aside:
       morning: 🏔正在攀爬赛莱斯特山……
       noon: ☃正在雪镇购物……
       afternoon: 🏚正在和莱西打牌……
-      night: 🔥正在卡卡利柯村烤篝火……
-      goodnight: 💾正在保存……
+      night: 🔥正在卡卡利科村烤篝火……
+      goodnight: 🎧正在听DJ电音头……
     # 个人信息卡片顶部按钮的切换文字
     # Switching text of the button at the top of the personal information card
     sayhello2:
@@ -611,7 +611,7 @@ says:
 # -------------------------
 # meeting-api，用于界面中的音乐胶囊和音乐馆页，可自定义api，不会请勿动。
 # meeting-api, used for music capsules and music halls in the interface, can customize api, do not move if you don't know.
-meting_api: "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r" #自定义api
+meting_api: "https://meting.qjqq.cn/?server=:server&type=:type&id=:id" #自定义api
 # 音乐馆页
 # music hall
 music:
@@ -635,8 +635,8 @@ music:
 # 音乐胶囊
 # capsule music
 capsule:
-  enable: false
-  id: 8407304077 # 歌单id / playlist id
+  enable: true
+  id: 9292935474 # 歌单id / playlist id
   server: netease # 播放列表的服务商。netease：网易云 / tencent：腾讯 / kugou：酷狗 / xiami：小米 / baidu：百度 : Music service provider. netease: Netease Cloud / tencent: Tencent / kugou: Kugou / xiaomi: Xiaomi / baidu: Baidu
   type: playlist # 播放列表的类型。song：单曲 / playlist：歌单 / album：专辑 / artist：歌手 : Type of playlist. song: Single / playlist: Playlist / album: Album / artist: Singer
 
