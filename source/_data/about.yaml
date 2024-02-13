@@ -1,0 +1,180 @@
+authorinfo:
+  leftTags:
+    - "✋ ❄☟⚐🕆☝☟❄"
+    - "✋🕯👎 🏱☼☜❄☜☠👎 ✋ 🕈✌💧"
+    - "⚐☼"
+  rightTags:
+    - "🕈☟✌❄ ✋🕯👎 👎⚐ 🕈✌💧"
+    - "⚐☠☜ ⚐☞ ❄☟⚐💧☜ 👎☜✌☞📫💣🕆❄☜💧"
+    - "💧☟⚐🕆☹👎 ✋✍"
+  image: "https://s2.loli.net/2024/02/11/vgoSJHLj2n5CAyB.jpg"
+
+title: 关于
+
+contentinfo:  # 顶部个人信息展示
+  sup: Pleased to meet you.
+  name: Fa1sePRoMiSe  # 名称
+  title: Hope you guess my name.  # 介绍
+  tip: 状态
+  slogan: 目前的活跃的项目
+  mask:
+    - mlscript
+    - luatic
+    - ProjectI
+
+skills: # 根据需求添加
+  title: 不写Python，再问紫砂！
+  subtitle: 技能表
+  tags:
+    - title: C/C++
+      icon: https://s2.loli.net/2024/02/13/4PU1RvO6wfCKdlQ.png
+      color: '#00599C'
+    - title: Scala
+      icon: https://s2.loli.net/2024/02/13/5k9TJtsHCv7OV1c.png
+      color: '#DC322F'
+    - title: C#
+      icon: https://s2.loli.net/2024/02/13/ZVdkmjnRBeWfc7M.png
+      color: '#512BD4'
+    - title: Rust
+      icon: https://s2.loli.net/2024/02/13/dWm9BTXLyQ1blEY.png
+      color: '#ffffff'
+    - title: Lua
+      icon: https://s2.loli.net/2024/02/13/IZd2txzEMR3qO4w.png
+      color: '#2C2D72'
+    - title: Git
+      icon: https://s2.loli.net/2024/02/13/hYiXI7mCgQvwTAq.png
+      color: '#F05032'
+    - title: Godot Engine
+      icon: https://s2.loli.net/2024/02/13/LzNH26UwGnTX87f.png
+      color: '#478CBF'
+    - title: Unity3D
+      icon: https://s2.loli.net/2024/02/13/m5jQMLvGUOJ1s6k.png
+      color: '#ffffff'
+    - title: MuseScore
+      icon: https://s2.loli.net/2024/02/13/rsGD5k2fTaNW9KJ.png
+      color: '#1A70B8'
+    - title: Asprite
+      icon: https://s2.loli.net/2024/02/13/mRlghMUoeTyvIkP.png
+      color: '#7D929E'
+
+careers:
+  title: "读读读书，读书，好好给我读书！看看人家都考100分99分你怎么74呀？"
+  subtitle: "生涯"
+  items:
+    - school: "计算机科学"
+      major: "软件工程"
+      color: "#357ef5"
+  image: https://s2.loli.net/2024/02/13/4R62cIdU7eqNPlM.webp
+
+personalities:
+  # tips: "性格"
+  # title: "执政官"
+  # color: "#56a178"
+  # type: "ESFJ-A"
+  # image: "https://p.wzsco.top/ESFJ-A.svg"
+  # link: "https://www.16personalities.com/"
+  # linkText: "16personalities"
+  # typeLink: "https://www.16personalities.com/ch/esfj-人格"
+  # typeName: "执政官"
+  # myphoto: https://p.wzsco.top//7958e1fb26af6cda303baf803edb84dd.png/cover
+
+motto:
+  # title: 座右铭
+  # prefix: 破釜沉舟，
+  # content: 砥砺前行。
+expertise:
+  # title: 特长
+  # prefix: 数学、物理、化学
+  # specialist: 专家
+  # content: 学习能力
+  # level: MAX
+
+game1:
+  title: "正在玩"
+  img: https://img.3dmgame.com/uploads/images/news/20181003/1538534863_244438.jpg
+  # icon: "fas fa-gamepad"
+  subtitle: "Red Dead Redemption 2"
+  tips_left: PC
+  tips_right: Rockstar
+
+game2:
+  title: "正在玩"
+  img: https://img.3dmgame.com/uploads/images/news/20200319/1584589133_868020.png
+  subtitle: "13 Sentinels: Aegis Rim"
+  tips_left: Nintendo Switch
+  tips_right: Vanillaware
+
+likes:
+  # - type: like-technology
+  #   bg: https://p.wzsco.top//8624755c54b39a570387376b043c6d98.png/cover
+  #   tips: 关注偏好
+  #   title: 数理化
+  #   subtips: 理工男
+  # - type: like-music
+  #   bg: https://p.wzsco.top//fe3ef8dd6d5b8772e1c0e4f061beca8e.png/cover
+  #   tips: 音乐偏好
+  #   title: 民谣、古典、轻音乐
+  #   subtips: 跟 王卓Sco 一起欣赏更多音乐
+  #   button: true
+  #   button_text: 更多推荐
+  #   button_link: /music/
+
+tj: # 统计
+  # url: https://v6-widget.51.la/v6/3F15j2vtdTo7PPcN/quote.js # 需要到51la官网注册自行获取
+  # img: https://p.wzsco.top/a7db22c5063a3d6f42ae2ee26f2436ab.webp/cover # 背景
+
+oneself:    # 按需填写
+  # location: '中国，湖南省' # 所在位置
+  # birthYear: '2004' # 生日
+  # university: '湖南大学'    # 毕业学校
+  # major: '软件工程' # 专业
+  # occupation: '学生'  # 职位
+  # map:  # 你所在位置的地图
+  #   light: https://p.wzsco.top/3b9047a67e59dcf85682d3c8e066a106.png/cover   # 白天
+  #   dark: https://p.wzsco.top/f31ec672f8701d67d696cd3d18af0c79.webp/cover   # 夜晚
+
+#自定义
+cause:
+  tip: 侵犯了您的版权？
+  title: 素材引用说明
+  content: <br/>本站部分素材（包括图片，字体和音频）并非原创。我们对这些素材作者表示感谢！
+    <br/>
+    <b>如果您不希望我们使用您的素材或素材使用侵犯了您的版权，请您联系我们删除，谢谢。</b>
+    <br/>
+    <i>部分常驻素材使用申明：</i>
+    <ul>
+      <li>头像作者：<a href="https://twitter.com/moshimoshibe">moshimoshibe</a></li>
+      <li>Icon作者： <a href="https://www.iconfont.cn/user/detail?spm=a313x.search_index.0.d214f71f6.25783a81dw9Itb&uid=6570588&nid=3inJK6Q4bZ3X">TaterLi</a></li>
+      <li>BGM：Peach's Castle from Super Mario 63 (Super Mario 64) Original Soundtrack</li>
+      <li>部分素材来源于<a href="https://github.com/wleelw/hexo-theme-solitude">主题</a></li>
+      <li>游戏截图来源于相应游戏</li>
+    </ul>
+
+tenyear:
+  # tips: 十年之约
+  # title: 一个人的寂寞，一群人的狂欢。
+  # start: 2023年04月20日
+  # end: 2033年04月20日
+
+award:
+  enable: false
+  description: 感谢赞赏的人，因为你们，让我感受到写博客这件事情能够给你们创造了价值。这会让我在这条路上走得更远。
+  tips: 总金额：¥ {sum}，将全部用于博客的维护和更新。 # 必须带 {sum}，否则无法显示总金额
+rewardList: # 底部捐赠
+  # - name: 悦华
+  #   money: 5
+  #   time: 2023-04-20
+  # - name: 糕小菜
+  #   money: 6.66
+  #   time: 2023-08-11
+  #   vip: true
+  # - name: 幕幕
+  #   money: 5
+  #   time: 2023-08-11
+  # - name: 悦华
+  #   money: 56
+  #   vip: true
+  #   time: 2023-08-25
+  # - name: 糕小菜
+  #   money: 3.33
+  #   time: 2023-12-24

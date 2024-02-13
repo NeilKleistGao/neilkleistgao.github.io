@@ -490,7 +490,7 @@ theme_color:
 # The theme supports three modes: automatic switching, dark mode, and light mode
 # --------------------------------------
 display_mode:
-  type: auto # auto: 自动切换 / dark: 暗色模式 / light: 亮色模式 / auto: automatic switching / dark: dark mode / light: light mode
+  type: dark # auto: 自动切换 / dark: 暗色模式 / light: 亮色模式 / auto: automatic switching / dark: dark mode / light: light mode
   universe: true # 开启后暗色模式下会显示星空背景 / After opening, the dark mode will display the starry sky background
 
 # 文章底部推荐文章
@@ -585,7 +585,7 @@ errorpage:
   img: https://bu.dusays.com/2023/03/03/6401a7906aa4a.gif
   # 文字
   # text
-  text: =awa= 页面走丢了
+  text: =ava= 你所查看的页面不存在
   # 推荐文章列表
   # Recommended article list
   recommendList: true
