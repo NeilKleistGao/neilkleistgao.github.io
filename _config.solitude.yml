@@ -66,39 +66,39 @@ nav:
   menu:
     # 显示的大分类名称
     # Displayed category name
-    # 文库:
-    #   # 点击跳转链接
-    #   # Click the jump link
-    #   # tip：如果没有子类就填跳转链接，例如：/archives，否则填false
-    #   # tip: If there is no subcategory, fill in the jump link, for example: /archives, otherwise fill in false
-    #   url: false
-    #   # 子类数组
-    #   # Subcategory array
-    #   child:
-    #     # 子类名称
-    #     # Subcategory name
-    #     文章列表:
-    #       # 点击跳转链接
-    #       # Click the jump link
-    #       url: /archives/
-    #       # 子类名称左侧图标
-    #       # Subcategory name left icon
-    #       icon: sco-folder-fill
-    #     全部分类:
-    #       url: /categories/
-    #       icon: sco-checkbox-multiple-blank-fill
-    #     全部标签:
-    #       url: /tags/
-    #       icon: sco-price-tag-fill
+    文库:
+      # 点击跳转链接
+      # Click the jump link
+      # tip：如果没有子类就填跳转链接，例如：/archives，否则填false
+      # tip: If there is no subcategory, fill in the jump link, for example: /archives, otherwise fill in false
+      url: false
+      # 子类数组
+      # Subcategory array
+      child:
+        # 子类名称
+        # Subcategory name
+        文章列表:
+          # 点击跳转链接
+          # Click the jump link
+          url: /archives/
+          # 子类名称左侧图标
+          # Subcategory name left icon
+          icon: sco-folder-fill
+        全部分类:
+          url: /categories/
+          icon: sco-checkbox-multiple-blank-fill
+        全部标签:
+          url: /tags/
+          icon: sco-price-tag-fill
     # 友链:
     #   url: false
     #   child:
     #     友情链接:
     #       url: /links/
     #       icon: sco-group-fill
-    #     宝藏博主:
-    #       url: javascript:travelling()
-    #       icon: sco-gift-fill
+        # 宝藏博主:
+        #   url: javascript:travelling()
+        #   icon: sco-gift-fill
     # 我的:
     #   url: false
     #   child:
@@ -108,12 +108,15 @@ nav:
     #     工具箱:
     #       url: /tlink/
     #       icon: sco-tools-fill
-    # 关于:
-    #   url: false
-    #   child:
-    #     关于本站:
-    #       url: /about/
-    #       icon: sco-contacts-fill
+    关于:
+      url: false
+      child:
+        友情链接:
+          url: /links/
+          icon: sco-group-fill
+        关于本站:
+          url: /about/
+          icon: sco-contacts-fill
 
   # 导航栏右侧按钮
   # Button on the right side of the navigation bar
@@ -375,13 +378,13 @@ aside:
     postcount: true
     # 总字数
     # Total number of words
-    wordcount: true
+    wordcount: false
     # 访问量
     # Number of visits
-    pv: true
+    pv: false
     # 访客数
     # Number of visitors
-    uv: true
+    uv: false
     # 最后更新日期
     # Last update date
     updatetime: true
@@ -517,17 +520,17 @@ footer:
   information:
     # 左侧显示图标 / Left display icon
     left:
-      # Github:
-      #   icon: scoicon sco-bilibili-line
-      #   url: https://github.com/wleelw
+      Github:
+        icon: scoicon sco-github-line
+        url: https://github.com/NeilKleistGao
       # Mail:
       #   icon: scoicon sco-mail-line
       #   url: mailto:wleelw@wzsco.top
     # 右侧显示图标 / Right display icon
     right:
-      # Bilibili:
-      #   icon: scoicon sco-bilibili-line
-      #   url: https://space.bilibili.com/1329819902
+      Bilibili:
+        icon: scoicon sco-bilibili-line
+        url: https://space.bilibili.com/12791613
       # 抖音:
       #   icon: scoicon sco-douyin-fill
       #   url: https://v.douyin.com/iJsLc8jt/
@@ -597,13 +600,13 @@ errorpage:
 # 开启后将显示即刻页面
 # After opening, the Jike page will be displayed
 says:
-  enable: false
+  enable: true
   # 主页的即刻轮播条
   # Jike carousel bar on the homepage
-  home_mini: false
+  home_mini: true
   # 1：张洪heo样式 / 2：Leonus样式
   # 1: Zhang Hong heo style / 2: Leonus style
-  style: 1
+  style: 2
   # 即刻短文仅展示前n条
   # Jike short text only shows the first n
   strip: 30
@@ -744,7 +747,7 @@ mediumZoom: false
 # 简繁转换
 # Simplified and Traditional Chinese conversion
 translate:
-  enable: false
+  enable: true
   # the language of website (1 - Traditional Chinese/ 2 - Simplified Chinese）
   defaultEncoding: 2
   # Time delay
