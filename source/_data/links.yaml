@@ -4,8 +4,8 @@ links:
     type: item
     link_list:
       - name: jzjerry # 友链名称
-        link: https://jzjerryblog.top/   # 友链地址
+        link: https://www.jzjerryblog.top/   # 友链地址
         avatar: https://avatars.githubusercontent.com/u/20167827?v=4  # 显示头像
       - name: Lan Xu # 友链名称
-        link: portfolio-of-lan.github.io   # 友链地址
+        link: https://portfolio-of-lan.github.io/   # 友链地址
         avatar: https://s2.loli.net/2022/01/10/rpUNsPwuyEClHqi.png  # 显示头像
