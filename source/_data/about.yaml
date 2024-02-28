@@ -91,11 +91,11 @@ expertise:
 
 game1:
   title: "正在玩"
-  img: https://img.3dmgame.com/uploads/images/news/20181003/1538534863_244438.jpg
+  img: https://cdn.wccftech.com/wp-content/uploads/2018/01/Iconoclasts-Title-e1516780536498.png
   # icon: "fas fa-gamepad"
-  subtitle: "Red Dead Redemption 2"
+  subtitle: "Iconoclast"
   tips_left: PC
-  tips_right: Rockstar
+  tips_right: "Joakim Sandberg"
 
 game2:
   title: "正在玩"
