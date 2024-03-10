@@ -829,9 +829,9 @@ post_ai:
 # latex 公式支持
 # latex formula support
 katex:
-  enable: false
-  per_page: false # 是否在每页都加载 / Whether to load on each page
-  copytex: false # 是否开启复制公式 / Whether to enable copy formula
+  enable: true
+  per_page: true # 是否在每页都加载 / Whether to load on each page
+  copytex: true # 是否开启复制公式 / Whether to enable copy formula
 
 # 评论
 # comment

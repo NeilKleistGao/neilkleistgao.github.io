@@ -21,6 +21,7 @@ contentinfo:  # 顶部个人信息展示
     - mlscript
     - luatic
     - ProjectI
+    - ProjectA
 
 skills: # 根据需求添加
   title: 不写Python，再问紫砂！
@@ -91,11 +92,11 @@ expertise:
 
 game1:
   title: "正在玩"
-  img: https://cdn.wccftech.com/wp-content/uploads/2018/01/Iconoclasts-Title-e1516780536498.png
+  img: https://th.bing.com/th/id/OIP.bSeIOQN_1AoN0u0a0RCfNQHaEK?rs=1&pid=ImgDetMain
   # icon: "fas fa-gamepad"
-  subtitle: "Iconoclast"
+  subtitle: "VVVVVV"
   tips_left: PC
-  tips_right: "Joakim Sandberg"
+  tips_right: "Terry Cavanagh"
 
 game2:
   title: "正在玩"
