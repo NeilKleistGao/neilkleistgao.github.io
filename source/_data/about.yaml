@@ -20,8 +20,7 @@ contentinfo:  # 顶部个人信息展示
   mask:
     - mlscript
     - luatic
-    - ProjectI
-    - ProjectA
+    - ProjectP
 
 skills: # 根据需求添加
   title: 不写Python，再问紫砂！
@@ -92,18 +91,18 @@ expertise:
 
 game1:
   title: "正在玩"
-  img: https://th.bing.com/th/id/OIP.bSeIOQN_1AoN0u0a0RCfNQHaEK?rs=1&pid=ImgDetMain
+  img: https://i.redd.it/dkhtruistrp51.jpg
   # icon: "fas fa-gamepad"
-  subtitle: "VVVVVV"
+  subtitle: "Persona 5 Royal"
   tips_left: PC
-  tips_right: "Terry Cavanagh"
+  tips_right: "Atlus"
 
 game2:
   title: "正在玩"
-  img: https://img.3dmgame.com/uploads/images/news/20200319/1584589133_868020.png
-  subtitle: "13 Sentinels: Aegis Rim"
+  img: https://img.3dmgame.com/uploads/allimg/180613/379-1P6131P340.jpg
+  subtitle: "Super Smash Bros. Ultimate"
   tips_left: Nintendo Switch
-  tips_right: Vanillaware
+  tips_right: Sora
 
 likes:
   # - type: like-technology
