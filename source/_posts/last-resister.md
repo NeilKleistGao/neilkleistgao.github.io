@@ -5,7 +5,7 @@ tags:
   - Unity3D
   - Ludum Dare
   - Game Jam
-category: 作品集
+category: Games
 cover: https://static.jam.host/content/5f1/81/z/174e1.jpg.320x256.fit.jpg
 ---
 

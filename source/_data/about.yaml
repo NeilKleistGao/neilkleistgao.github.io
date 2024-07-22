@@ -19,7 +19,6 @@ contentinfo:  # 顶部个人信息展示
   slogan: 目前的活跃的项目
   mask:
     - mlscript
-    - luatic
     - ProjectP
 
 skills: # 根据需求添加
@@ -91,18 +90,18 @@ expertise:
 
 game1:
   title: "正在玩"
-  img: https://i.redd.it/dkhtruistrp51.jpg
+  img: https://img.allnintendonews.com/wp-content/uploads/2024/04/640-19-930x608.webp
   # icon: "fas fa-gamepad"
-  subtitle: "Persona 5 Royal"
+  subtitle: "小丑牌"
   tips_left: PC
-  tips_right: "Atlus"
+  tips_right: "LocalThunk"
 
 game2:
   title: "正在玩"
-  img: https://img.3dmgame.com/uploads/allimg/180613/379-1P6131P340.jpg
-  subtitle: "Super Smash Bros. Ultimate"
+  img: https://image.gcores.com/1b32746fa7e0cd37cfdea9cb44766263-1920-1080.jpg?x-oss-process=image/resize,limit_1,m_lfit,w_1600/quality,q_90/format,webp
+  subtitle: "月姬 - A piece of Blue Glass Moon"
   tips_left: Nintendo Switch
-  tips_right: Sora
+  tips_right: Type-Moon
 
 likes:
   # - type: like-technology
