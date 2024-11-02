@@ -224,7 +224,7 @@ hometop:
     url: https://docs.wzsco.top/
     # 显示背景图片
     # Display background image
-    img: https://s2.loli.net/2024/02/11/GJmVu57gQsiqrRD.png
+    img: images/moon.jpg
     # 阴影颜色
     # Shadow color
     color: "#ff0000"
@@ -411,7 +411,7 @@ page:
     # tip：随机数组图片，每次生成的时候都会从中随机抽取一张
     # tip: Random array pictures, each time you generate, you will randomly extract one from them
     cover:
-      - https://s2.loli.net/2024/02/11/GJmVu57gQsiqrRD.png # 默认图片 / default cover
+      - images/moon.jpg # 默认图片 / default cover
 
 # 文章页默认设置
 # post default settings
@@ -420,7 +420,7 @@ post:
     # 文章默认图片
     # default cover
     cover:
-      - https://s2.loli.net/2024/02/11/GJmVu57gQsiqrRD.png # 默认图片 / default cover
+      - images/moon.jpg # 默认图片 / default cover
     # 文章发布默认地址
     # default post locate
     locate: HK

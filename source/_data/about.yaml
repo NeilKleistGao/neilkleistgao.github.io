@@ -90,18 +90,18 @@ expertise:
 
 game1:
   title: "正在玩"
-  img: https://img.allnintendonews.com/wp-content/uploads/2024/04/640-19-930x608.webp
+  img: https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/red-dead-redemption-2-review-9tx8640_p7b2.1280.jpg
   # icon: "fas fa-gamepad"
-  subtitle: "小丑牌"
+  subtitle: "荒野大镖客：救赎2"
   tips_left: PC
-  tips_right: "LocalThunk"
+  tips_right: "Rockstar Games"
 
 game2:
   title: "正在玩"
-  img: https://image.gcores.com/1b32746fa7e0cd37cfdea9cb44766263-1920-1080.jpg?x-oss-process=image/resize,limit_1,m_lfit,w_1600/quality,q_90/format,webp
-  subtitle: "月姬 - A piece of Blue Glass Moon"
+  img: https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/maxresdefault_pnyu.1200.jpg
+  subtitle: "塞尔达传说 智慧的再现"
   tips_left: Nintendo Switch
-  tips_right: Type-Moon
+  tips_right: Nintendo
 
 likes:
   # - type: like-technology
